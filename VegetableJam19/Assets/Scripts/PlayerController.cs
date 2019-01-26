@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	private Collider2D MainCol,JumpCol;
+	//private Collider2D MainCol,JumpCol;
 	private Rigidbody2D RB;
-
-	public float HzAccel;
-	public float MaxSpeed, Slowdown, HzSpeed,JumpForce;
+	
+	public float MaxSpeed,JumpForce;
 	public float JumpDelay;
 	public float JumpElapsed;
 
@@ -18,8 +17,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		JumpElapsed = 0;
 		touching = 0;
-		MainCol = GetComponents<Collider2D>()[0];
-		JumpCol = GetComponents<Collider2D>()[0];
+		//MainCol = GetComponents<Collider2D>()[0];
+		//JumpCol = GetComponents<Collider2D>()[0];
 		RB = GetComponent<Rigidbody2D>();
 	}
 	
@@ -28,10 +27,7 @@ public class PlayerController : MonoBehaviour {
 		JumpElapsed += Time.deltaTime;
 		JumpElapsed = Mathf.Clamp(JumpElapsed, 0, 2);
 		float hzin = Input.GetAxis("Horizontal");
-		if (hzin == 0) HzSpeed *= Slowdown;
-		HzSpeed += HzAccel * hzin;
-		HzSpeed = Mathf.Clamp(HzSpeed, -MaxSpeed, MaxSpeed);
-		this.transform.Translate(new Vector3(HzSpeed, 0.0f, 0.0f));
+		this.transform.Translate(new Vector3(MaxSpeed*hzin, 0.0f, 0.0f));
 		if (touching > 0 && JumpElapsed > JumpDelay && Input.GetAxis("Jump") > 0.5) {
 			RB.AddForce(new Vector2(0.0f, JumpForce));
 			JumpElapsed = 0;
