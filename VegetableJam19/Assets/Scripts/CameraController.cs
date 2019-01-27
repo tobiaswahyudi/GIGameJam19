@@ -6,22 +6,26 @@ public class CameraController : MonoBehaviour {
 
 	private Camera cam;
 	public Transform Player;
+	public PlayerController PC;
 	public Transform UI;
 	public float CamSpeed;
 	public float CamHeight;
 	public float SizeChangeSpeed;
 	public float SizeNow;
 	public float[] Sizes;
+	public int Size;
 	private float sizeDest;
 	private bool changing;
 
-	private float playerHeight = 2.3f;
+	//private float playerHeight = 2.3f;
 
 	// Use this for initialization
 	void Start () {
+		Size = 0;
 		SizeNow = 1;
 		cam = Camera.main;
 		changing = false;
+		PC = Player.GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +33,7 @@ public class CameraController : MonoBehaviour {
 		this.transform.position = Vector3.Lerp(this.transform.position,Player.transform.position + new Vector3(0 ,CamHeight, -10),
 			CamSpeed*(Mathf.Abs(Vector3.Distance(this.transform.position, Player.transform.position))-8.0f));
 		if (changing) {
+			PC.facingLeft = false;
 			if(Mathf.Abs(SizeNow - sizeDest) < 0.01) {
 				cam.orthographicSize = sizeDest;
 				UI.transform.localScale = new Vector3(sizeDest, sizeDest, 1.0f);
@@ -44,6 +49,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	public void SizeChange(int destination) {
+		Size = destination;
 		if (!changing) {
 			sizeDest = Sizes[destination];
 			changing = true;

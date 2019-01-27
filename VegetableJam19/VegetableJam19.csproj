@@ -286,13 +286,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bobble.cs" />
+    <Compile Include="Assets\Scripts\Bottle.cs" />
     <Compile Include="Assets\Scripts\Burst.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Climb.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />
+    <Compile Include="Assets\Scripts\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Drop.cs" />
+    <Compile Include="Assets\Scripts\Dropper.cs" />
+    <Compile Include="Assets\Scripts\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PotionPickup.cs" />
     <Compile Include="Assets\Scripts\PotsController.cs" />
+    <Compile Include="Assets\Scripts\SpriteDialogueTrigger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
