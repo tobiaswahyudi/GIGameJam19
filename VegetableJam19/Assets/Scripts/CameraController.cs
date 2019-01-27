@@ -5,9 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	private Camera cam;
+	public Transform Cursor;
 	public Transform Player;
 	public PlayerController PC;
 	public Transform UI;
+	public Holding Inventory;
 	public float CamSpeed;
 	public float CamHeight;
 	public float SizeChangeSpeed;

@@ -219,7 +219,7 @@ MonoBehaviour:
   popupText: {fileID: 114917391965794050}
   Img: {fileID: 114997672811560340}
   flyTime: 1
-  stayTime: 1
+  stayTime: 2
   flyIn:
     serializedVersion: 2
     m_Curve:
