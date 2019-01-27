@@ -10,34 +10,22 @@ public class ItemPopup : MonoBehaviour
 
     public Animator animate;
 
-    private Queue<string> words;
-
     private float timing;
 
     // Start is called before the first frame update
     void Start()
     {
-        words = new Queue<string>();
         
     }
 
-    public void ShowDialogue(Dialogue texts)
+    public void ShowDialogue(string texts)
     {
         timing = Time.time;
 
         animate.SetBool("isOpen", true);
 
-        words.Clear();
+        popupText.text = texts;
 
-        foreach (string sentence in texts.sentences)
-        {
-            words.Enqueue(sentence);
-        }
-
-        popupText.text = words.Dequeue();
-
-
-        
     }
 
 
